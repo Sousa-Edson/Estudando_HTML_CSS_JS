@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redonda</title>
+    <style>
+        img {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #dfdfdf;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img.jpg" alt="">
+    <input type="file">
+    <script>
+        const image = document.querySelector("img"),
+            input = document.querySelector("input");
+
+        input.addEventListener("change", () => {
+            // imagem.src = 'img.jpg'; // Definir a fonte da imagem como vazia
+            image.src = URL.createObjectURL(input.files[0])
+            if (input.length > 0) {
+                console.log("vazio")
+            //     imagem.src = URL.createObjectURL(input.files[0]);
+            } else {
+                console.log("cheio")
+            }
+        })
+
+        image.addEventListener("click", () => {
+            input.click();
+        })
+    </script>
+</body>
+
+</html>
